@@ -1,45 +1,58 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-} from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 import { DashboardService } from './dashboard.service';
-import { CreateDashboardDto } from './dto/create-dashboard.dto';
-import { UpdateDashboardDto } from './dto/update-dashboard.dto';
+import { GetRevenueByDateDTO } from './dto/getRevenueByDate.dto';
 
 @Controller('dashboard')
 export class DashboardController {
   constructor(private readonly dashboardService: DashboardService) {}
 
-  @Post()
-  create(@Body() createDashboardDto: CreateDashboardDto) {
-    return this.dashboardService.create(createDashboardDto);
+  @Get('/year/revenue')
+  getCurrentYearRevenue() {
+    return this.dashboardService.getCurrentYearRevenue();
   }
 
-  @Get()
-  findAll() {
-    return this.dashboardService.findAll();
+  @Get('/month/revenue')
+  getCurrentMonthRevenue() {
+    return this.dashboardService.getCurrentMonthRevenue();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.dashboardService.findOne(+id);
+  @Get('/day/revenue')
+  getCurrentDayRevenue() {
+    return this.dashboardService.getCurrentDayRevenue();
   }
 
-  @Patch(':id')
-  update(
-    @Param('id') id: string,
-    @Body() updateDashboardDto: UpdateDashboardDto,
-  ) {
-    return this.dashboardService.update(+id, updateDashboardDto);
+  @Get('/custom/revenue')
+  getRevenueByDate(@Query() getRevenueByDateDTO: GetRevenueByDateDTO) {
+    return this.dashboardService.getRevenueByDate(getRevenueByDateDTO);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.dashboardService.remove(+id);
+  @Get('/year/most/product/sales')
+  getCurrentYearMostSoldProductBySales() {
+    return this.dashboardService.getCurrentYearMostSoldProductBySales();
+  }
+
+  @Get('/year/most/product/volume')
+  getCurrentYearMostSoldProductByQuantity() {
+    return this.dashboardService.getCurrentYearMostSoldProductByQuantity();
+  }
+
+  @Get('/month/most/product/sales')
+  getCurrentMonthMostSoldProductBySales() {
+    return this.dashboardService.getCurrentMonthMostSoldProductBySales();
+  }
+
+  @Get('/month/most/product/volume')
+  getCurrentMonthMostSoldProductByQuantity() {
+    return this.dashboardService.getCurrentMonthMostSoldProductByQuantity();
+  }
+
+  @Get('/day/queue')
+  getCurrentDayQueue() {
+    return this.dashboardService.getCurrentDayQueue();
+  }
+
+  @Get('/day/vs')
+  getCurrentDayTotalOrderVsTotalPayment() {
+    return this.dashboardService.getCurrentDayTotalOrderVsTotalPayment();
   }
 }
