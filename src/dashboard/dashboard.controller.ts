@@ -26,6 +26,11 @@ export class DashboardController {
     return this.dashboardService.getRevenueByDate(getRevenueByDateDTO);
   }
 
+  @Get('/year/revenue/compact')
+  getCurrentYearDetailedRevenue() {
+    return this.dashboardService.getCurrentYearDetailedRevenue();
+  }
+
   @Get('/year/most/product/sales')
   getCurrentYearMostSoldProductBySales() {
     return this.dashboardService.getCurrentYearMostSoldProductBySales();

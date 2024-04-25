@@ -96,6 +96,207 @@ export class DashboardService {
     return result;
   }
 
+  async getCurrentYearDetailedRevenue() {
+    const currentYear = moment().year();
+
+    const januaryFirstDateMonth = String(currentYear) + '01' + '01';
+    const januaryLastDateMonth = String(currentYear) + '01' + '31';
+
+    const febuaryFirstDateMonth = String(currentYear) + '02' + '01';
+    const febuaryLastDateMonth = String(currentYear) + '02' + '31';
+
+    const marchFirstDateMonth = String(currentYear) + '03' + '01';
+    const marchLastDateMonth = String(currentYear) + '03' + '31';
+
+    const aprilFirstDateMonth = String(currentYear) + '04' + '01';
+    const aprilLastDateMonth = String(currentYear) + '04' + '31';
+
+    const mayFirstDateMonth = String(currentYear) + '05' + '01';
+    const mayLastDateMonth = String(currentYear) + '05' + '31';
+
+    const juneFirstDateMonth = String(currentYear) + '06' + '01';
+    const juneLastDateMonth = String(currentYear) + '06' + '31';
+
+    const julyFirstDateMonth = String(currentYear) + '07' + '01';
+    const julyLastDateMonth = String(currentYear) + '07' + '31';
+
+    const augustFirstDateMonth = String(currentYear) + '08' + '01';
+    const augustLastDateMonth = String(currentYear) + '08' + '31';
+
+    const septemberFirstDateMonth = String(currentYear) + '09' + '01';
+    const septemberLastDateMonth = String(currentYear) + '09' + '31';
+
+    const octoberFirstDateMonth = String(currentYear) + '10' + '01';
+    const octoberLastDateMonth = String(currentYear) + '10' + '31';
+
+    const novemberFirstDateMonth = String(currentYear) + '11' + '01';
+    const novemberLastDateMonth = String(currentYear) + '11' + '31';
+
+    const decemberFirstDateMonth = String(currentYear) + '12' + '01';
+    const decemberLastDateMonth = String(currentYear) + '12' + '31';
+
+    const januaryRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date BETWEEN $1 AND $2',
+      [januaryFirstDateMonth, januaryLastDateMonth],
+    );
+
+    const febuaryRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date BETWEEN $1 AND $2',
+      [febuaryFirstDateMonth, febuaryLastDateMonth],
+    );
+
+    const marchRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date BETWEEN $1 AND $2',
+      [marchFirstDateMonth, marchLastDateMonth],
+    );
+
+    const aprilRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date BETWEEN $1 AND $2',
+      [aprilFirstDateMonth, aprilLastDateMonth],
+    );
+
+    const mayRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date BETWEEN $1 AND $2',
+      [mayFirstDateMonth, mayLastDateMonth],
+    );
+
+    const juneRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date BETWEEN $1 AND $2',
+      [juneFirstDateMonth, juneLastDateMonth],
+    );
+
+    const julyRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date BETWEEN $1 AND $2',
+      [julyFirstDateMonth, julyLastDateMonth],
+    );
+
+    const augustRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date BETWEEN $1 AND $2',
+      [augustFirstDateMonth, augustLastDateMonth],
+    );
+
+    const septemberRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date BETWEEN $1 AND $2',
+      [septemberFirstDateMonth, septemberLastDateMonth],
+    );
+
+    const octoberRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date BETWEEN $1 AND $2',
+      [octoberFirstDateMonth, octoberLastDateMonth],
+    );
+
+    const novemberRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date BETWEEN $1 AND $2',
+      [novemberFirstDateMonth, novemberLastDateMonth],
+    );
+
+    const decemberRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date BETWEEN $1 AND $2',
+      [decemberFirstDateMonth, decemberLastDateMonth],
+    );
+
+    const result = {
+      january: {
+        revenue: Number(januaryRawData[0].revenue),
+        total_order: Number(januaryRawData[0].total_order),
+      },
+      febuary: {
+        revenue: Number(febuaryRawData[0].revenue),
+        total_order: Number(febuaryRawData[0].total_order),
+      },
+      march: {
+        revenue: Number(marchRawData[0].revenue),
+        total_order: Number(marchRawData[0].total_order),
+      },
+      april: {
+        revenue: Number(aprilRawData[0].revenue),
+        total_order: Number(aprilRawData[0].total_order),
+      },
+      may: {
+        revenue: Number(mayRawData[0].revenue),
+        total_order: Number(mayRawData[0].total_order),
+      },
+      june: {
+        revenue: Number(juneRawData[0].revenue),
+        total_order: Number(juneRawData[0].total_order),
+      },
+      july: {
+        revenue: Number(julyRawData[0].revenue),
+        total_order: Number(julyRawData[0].total_order),
+      },
+      august: {
+        revenue: Number(augustRawData[0].revenue),
+        total_order: Number(augustRawData[0].total_order),
+      },
+      september: {
+        revenue: Number(septemberRawData[0].revenue),
+        total_order: Number(septemberRawData[0].total_order),
+      },
+      october: {
+        revenue: Number(octoberRawData[0].revenue),
+        total_order: Number(octoberRawData[0].total_order),
+      },
+      november: {
+        revenue: Number(novemberRawData[0].revenue),
+        total_order: Number(novemberRawData[0].total_order),
+      },
+      december: {
+        revenue: Number(decemberRawData[0].revenue),
+        total_order: Number(decemberRawData[0].total_order),
+      },
+    };
+
+    return result;
+  }
+
   async getCurrentYearMostSoldProductBySales() {
     const currentYear = moment().year();
 
