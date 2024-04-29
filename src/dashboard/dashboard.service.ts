@@ -3,6 +3,7 @@ import { InjectEntityManager } from '@nestjs/typeorm';
 import { EntityManager } from 'typeorm';
 import * as moment from 'moment';
 import { GetRevenueByDateDTO } from './dto/getRevenueByDate.dto';
+import { getLast7DaysDate } from './util/getLast7DaysDate.util';
 
 @Injectable()
 export class DashboardService {
@@ -73,6 +74,107 @@ export class DashboardService {
     const result = {
       revenue: Number(rawData[0].revenue),
       total_order: Number(rawData[0].total_order),
+    };
+
+    return result;
+  }
+
+  async getLast7DaysRevenue() {
+    const { first, second, third, fourth, fifth, sixth, seventh } =
+      getLast7DaysDate();
+
+    const firstDayRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date = $1',
+      [first],
+    );
+
+    const secondDayRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date = $1',
+      [second],
+    );
+
+    const thirdDayRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date = $1',
+      [third],
+    );
+
+    const fourthDayRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date = $1',
+      [fourth],
+    );
+
+    const fifthDayRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date = $1',
+      [fifth],
+    );
+
+    const sixthDayRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date = $1',
+      [sixth],
+    );
+
+    const seventhDayRawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date = $1',
+      [seventh],
+    );
+
+    const result = {
+      firstDay: {
+        revenue: Number(firstDayRawData[0].revenue),
+        total_order: Number(firstDayRawData[0].total_order),
+      },
+      secondDay: {
+        revenue: Number(secondDayRawData[0].revenue),
+        total_order: Number(secondDayRawData[0].total_order),
+      },
+      thirdDay: {
+        revenue: Number(thirdDayRawData[0].revenue),
+        total_order: Number(thirdDayRawData[0].total_order),
+      },
+      fourthDay: {
+        revenue: Number(fourthDayRawData[0].revenue),
+        total_order: Number(fourthDayRawData[0].total_order),
+      },
+      fifthDay: {
+        revenue: Number(fifthDayRawData[0].revenue),
+        total_order: Number(fifthDayRawData[0].total_order),
+      },
+      sixthDay: {
+        revenue: Number(sixthDayRawData[0].revenue),
+        total_order: Number(sixthDayRawData[0].total_order),
+      },
+      seventhDay: {
+        revenue: Number(seventhDayRawData[0].revenue),
+        total_order: Number(seventhDayRawData[0].total_order),
+      },
     };
 
     return result;

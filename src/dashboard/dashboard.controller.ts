@@ -21,6 +21,11 @@ export class DashboardController {
     return this.dashboardService.getCurrentDayRevenue();
   }
 
+  @Get('/day/last7/revenue')
+  getLast7DaysRevenue() {
+    return this.dashboardService.getLast7DaysRevenue();
+  }
+
   @Get('/custom/revenue')
   getRevenueByDate(@Query() getRevenueByDateDTO: GetRevenueByDateDTO) {
     return this.dashboardService.getRevenueByDate(getRevenueByDateDTO);
