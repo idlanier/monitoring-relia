@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { ConsultationQueueModule } from './consultation-queue/consultation-queue.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
       logging: true,
     }),
     DashboardModule,
+    ConsultationQueueModule,
   ],
   controllers: [AppController],
   providers: [AppService],
