@@ -16,6 +16,11 @@ export class DashboardController {
     return this.dashboardService.getCurrentMonthRevenue();
   }
 
+  @Get('/week/revenue')
+  getCurrentWeekRevenue() {
+    return this.dashboardService.getCurrentWeekRevenue();
+  }
+
   @Get('/day/revenue')
   getCurrentDayRevenue() {
     return this.dashboardService.getCurrentDayRevenue();

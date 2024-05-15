@@ -59,6 +59,27 @@ export class DashboardService {
     return result;
   }
 
+  async getCurrentWeekRevenue() {
+    const firstDay = moment().subtract(1, 'days').format('YYYYMMDD');
+    const seventhDay = moment().subtract(1, 'days').format('YYYYMMDD');
+
+    const rawData = await this.entityManager.query(
+      'SELECT SUM(payment_amount) AS revenue, ' +
+        'COUNT(*) AS total_order ' +
+        'FROM pj.trx_pos_payment A ' +
+        'JOIN pj.trx_pos B ON A.pos_id = B.pos_id ' +
+        'WHERE doc_date BETWEEN $1 AND $2',
+      [firstDay, seventhDay],
+    );
+
+    const result = {
+      revenue: Number(rawData[0].revenue),
+      total_order: Number(rawData[0].total_order),
+    };
+
+    return result;
+  }
+
   async getCurrentDayRevenue() {
     const currentDate = moment().format('YYYYMMDD');
 
@@ -345,56 +366,68 @@ export class DashboardService {
       [decemberFirstDateMonth, decemberLastDateMonth],
     );
 
-    const result = {
-      january: {
+    const result = [
+      {
+        month: 'Jan',
         revenue: Number(januaryRawData[0].revenue),
         total_order: Number(januaryRawData[0].total_order),
       },
-      febuary: {
+      {
+        month: 'Jan',
         revenue: Number(febuaryRawData[0].revenue),
         total_order: Number(febuaryRawData[0].total_order),
       },
-      march: {
+      {
+        month: 'Mar',
         revenue: Number(marchRawData[0].revenue),
         total_order: Number(marchRawData[0].total_order),
       },
-      april: {
+      {
+        month: 'Apr',
         revenue: Number(aprilRawData[0].revenue),
         total_order: Number(aprilRawData[0].total_order),
       },
-      may: {
+      {
+        month: 'May',
         revenue: Number(mayRawData[0].revenue),
         total_order: Number(mayRawData[0].total_order),
       },
-      june: {
+      {
+        month: 'Jun',
         revenue: Number(juneRawData[0].revenue),
         total_order: Number(juneRawData[0].total_order),
       },
-      july: {
+      {
+        month: 'Jul',
         revenue: Number(julyRawData[0].revenue),
         total_order: Number(julyRawData[0].total_order),
       },
-      august: {
+      {
+        month: 'Aug',
         revenue: Number(augustRawData[0].revenue),
         total_order: Number(augustRawData[0].total_order),
       },
-      september: {
+      {
+        month: 'Sep',
         revenue: Number(septemberRawData[0].revenue),
         total_order: Number(septemberRawData[0].total_order),
       },
-      october: {
+      {
+        month: 'Oct',
         revenue: Number(octoberRawData[0].revenue),
         total_order: Number(octoberRawData[0].total_order),
       },
-      november: {
+      {
+        month: 'Nov',
         revenue: Number(novemberRawData[0].revenue),
         total_order: Number(novemberRawData[0].total_order),
       },
-      december: {
+      {
+        month: 'Dec',
         revenue: Number(decemberRawData[0].revenue),
         total_order: Number(decemberRawData[0].total_order),
       },
-    };
+    ];
 
     return result;
   }
