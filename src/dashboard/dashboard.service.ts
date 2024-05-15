@@ -373,7 +373,7 @@ export class DashboardService {
         total_order: Number(januaryRawData[0].total_order),
       },
       {
-        month: 'Jan',
+        month: 'Feb',
         revenue: Number(febuaryRawData[0].revenue),
         total_order: Number(febuaryRawData[0].total_order),
       },
