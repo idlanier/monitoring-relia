@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { ConsultationQueueModule } from './consultation-queue/consultation-queue.module';
 import { PurchaseOrderModule } from './purchase-order/purchase-order.module';
+import { TransactionModule } from './transaction/transaction.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { PurchaseOrderModule } from './purchase-order/purchase-order.module';
     DashboardModule,
     ConsultationQueueModule,
     PurchaseOrderModule,
+    TransactionModule,
   ],
   controllers: [AppController],
   providers: [AppService],
