@@ -4,6 +4,8 @@ import { EntityManager } from 'typeorm';
 import * as moment from 'moment';
 import { GetRevenueByDateDTO } from './dto/getRevenueByDate.dto';
 import { getLast7DaysDate } from './util/getLast7DaysDate.util';
+import { getFirstDayOfTheWeek } from './util/getFirstDayOfTheWeek.util';
+import { getLastDayOfTheWeek } from './util/getLastDayOfTheWeek.util';
 
 @Injectable()
 export class DashboardService {
@@ -60,8 +62,8 @@ export class DashboardService {
   }
 
   async getCurrentWeekRevenue() {
-    const firstDay = moment().subtract(1, 'days').format('YYYYMMDD');
-    const seventhDay = moment().subtract(1, 'days').format('YYYYMMDD');
+    const firstDay = getFirstDayOfTheWeek();
+    const seventhDay = getLastDayOfTheWeek();
 
     const rawData = await this.entityManager.query(
       'SELECT SUM(payment_amount) AS revenue, ' +

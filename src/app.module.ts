@@ -7,6 +7,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { ConsultationQueueModule } from './consultation-queue/consultation-queue.module';
 import { PurchaseOrderModule } from './purchase-order/purchase-order.module';
 import { TransactionModule } from './transaction/transaction.module';
+import { ReceiveGoodsModule } from './receive-goods/receive-goods.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { TransactionModule } from './transaction/transaction.module';
     ConsultationQueueModule,
     PurchaseOrderModule,
     TransactionModule,
+    ReceiveGoodsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
