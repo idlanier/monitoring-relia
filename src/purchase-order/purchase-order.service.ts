@@ -14,6 +14,8 @@ export class PurchaseOrderService {
   async getPurchaseOrderByDateRange(
     start_date: Date,
     end_date: Date,
+    limit: number,
+    offset: number,
     product_id?: number,
   ) {
     const formattedStartDate = moment(start_date).format('YYYYMMDD');
@@ -43,6 +45,7 @@ export class PurchaseOrderService {
     query +=
       'GROUP BY B.po_id, B.doc_date, B.status_doc, C.supplier_name, D.supplier_name, E.product_id, E.product_name ';
     query += 'ORDER BY B.doc_date DESC ';
+    query += `LIMIT ${limit} OFFSET ${offset} `;
 
     const params = [formattedStartDate, formattedEndDate];
 

@@ -11,6 +11,8 @@ export class PurchaseOrderController {
     return this.purchaseOrderService.getPurchaseOrderByDateRange(
       queryParam.start_date,
       queryParam.end_date,
+      queryParam.limit,
+      queryParam.offset,
       queryParam.product_id,
     );
   }

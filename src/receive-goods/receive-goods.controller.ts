@@ -10,6 +10,8 @@ export class ReceiveGoodsController {
     return this.receiveGoodsService.getReceiveGoodsByDateRange(
       queryParam.start_date,
       queryParam.end_date,
+      queryParam.limit,
+      queryParam.offset,
       queryParam.product_id,
       queryParam.ext_doc_no,
     );

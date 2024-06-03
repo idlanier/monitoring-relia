@@ -13,6 +13,8 @@ export class ReceiveGoodsService {
   async getReceiveGoodsByDateRange(
     start_date: Date,
     end_date: Date,
+    limit: number,
+    offset: number,
     product_id?: number,
     ext_doc_no?: string,
   ) {
@@ -52,6 +54,8 @@ export class ReceiveGoodsService {
     if (product_id) {
       params.push(product_id.toString());
     }
+
+    query += `LIMIT ${limit} OFFSET ${offset} `;
 
     const rawData = await this.entityManager.query(query, params);
 
