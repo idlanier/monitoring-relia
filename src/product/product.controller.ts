@@ -13,4 +13,31 @@ export class ProductController {
       queryParam.offset,
     );
   }
+
+  @Get('history/po/list')
+  getLatestPOPriceProduct(@Query() queryParam: any) {
+    return this.productService.getLatestPOPriceProduct(
+      queryParam.product_id,
+      queryParam.limit,
+      queryParam.offset,
+    );
+  }
+
+  @Get('history/transaction/list')
+  getLatestSellPriceProduct(@Query() queryParam: any) {
+    return this.productService.getLatestSellPriceProduct(
+      queryParam.product_id,
+      queryParam.limit,
+      queryParam.offset,
+    );
+  }
+
+  @Get('history/stock/list')
+  getLatestStockProductMovement(@Query() queryParam: any) {
+    return this.productService.getLatestStockProductMovement(
+      queryParam.product_id,
+      queryParam.limit,
+      queryParam.offset,
+    );
+  }
 }
