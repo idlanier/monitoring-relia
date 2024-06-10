@@ -10,6 +10,8 @@ import { TransactionModule } from './transaction/transaction.module';
 import { ReceiveGoodsModule } from './receive-goods/receive-goods.module';
 import { StockModule } from './stock/stock.module';
 import { ProductModule } from './product/product.module';
+import { PatientModule } from './patient/patient.module';
+import { MedicalRecordModule } from './medical-record/medical-record.module';
 
 @Module({
   imports: [
@@ -32,6 +34,8 @@ import { ProductModule } from './product/product.module';
     ReceiveGoodsModule,
     StockModule,
     ProductModule,
+    PatientModule,
+    MedicalRecordModule,
   ],
   controllers: [AppController],
   providers: [AppService],
