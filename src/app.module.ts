@@ -12,17 +12,21 @@ import { StockModule } from './stock/stock.module';
 import { ProductModule } from './product/product.module';
 import { PatientModule } from './patient/patient.module';
 import { MedicalRecordModule } from './medical-record/medical-record.module';
+import { UserModule } from './user/user.module';
+import { LoginModule } from './login/login.module';
+import { User } from './user/entity/user.entity';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env' }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
       port: Number(process.env.DB_PORT),
       password: process.env.DB_PASSWORD,
       username: process.env.DB_USERNAME,
-      entities: [],
+      entities: [User],
       database: process.env.DB_DATABASE,
       synchronize: false,
       logging: true,
@@ -36,6 +40,9 @@ import { MedicalRecordModule } from './medical-record/medical-record.module';
     ProductModule,
     PatientModule,
     MedicalRecordModule,
+    AuthModule,
+    UserModule,
+    LoginModule,
   ],
   controllers: [AppController],
   providers: [AppService],

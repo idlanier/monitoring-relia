@@ -1,7 +1,9 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { DashboardService } from './dashboard.service';
 import { GetRevenueByDateDTO } from './dto/getRevenueByDate.dto';
+import { AuthJwtGuard } from 'src/auth/auth.decorator';
 
+@AuthJwtGuard()
 @Controller('dashboard')
 export class DashboardController {
   constructor(private readonly dashboardService: DashboardService) {}

@@ -1,6 +1,8 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { MedicalRecordService } from './medical-record.service';
+import { AuthJwtGuard } from 'src/auth/auth.decorator';
 
+@AuthJwtGuard()
 @Controller('medical-record')
 export class MedicalRecordController {
   constructor(private readonly medicalRecordService: MedicalRecordService) {}

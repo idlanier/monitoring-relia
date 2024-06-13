@@ -1,7 +1,9 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { PurchaseOrderService } from './purchase-order.service';
 import { GetPurchaseValueByDateDTO } from './dto/getRevenueByDate.dto';
+import { AuthJwtGuard } from 'src/auth/auth.decorator';
 
+@AuthJwtGuard()
 @Controller('po')
 export class PurchaseOrderController {
   constructor(private readonly purchaseOrderService: PurchaseOrderService) {}

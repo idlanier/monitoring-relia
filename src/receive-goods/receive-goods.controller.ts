@@ -1,6 +1,8 @@
 import { Controller, Get, Param, Query } from '@nestjs/common';
 import { ReceiveGoodsService } from './receive-goods.service';
+import { AuthJwtGuard } from 'src/auth/auth.decorator';
 
+@AuthJwtGuard()
 @Controller('receive-goods')
 export class ReceiveGoodsController {
   constructor(private readonly receiveGoodsService: ReceiveGoodsService) {}
