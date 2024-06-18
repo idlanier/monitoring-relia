@@ -190,7 +190,7 @@ export class PurchaseOrderService {
       'WHERE doc_date BETWEEN $1 AND $2 ';
 
     if (getPurchaseValueByDateDTO.product_id) {
-      query += 'AND A.product_id = $2 ';
+      query += 'AND A.product_id = $3 ';
     }
 
     const params = [
