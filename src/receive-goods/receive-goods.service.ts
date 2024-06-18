@@ -32,7 +32,9 @@ export class ReceiveGoodsService {
       'SUM(qty_receive) AS total_qty_received, ' +
       'SUM(qty_dlv) AS total_qty_deliver, ' +
       'SUM(item_amount_gross) as total_order_value, ' +
-      'SUM(item_amount_discount) as total_after_discount ' +
+      'SUM(item_amount_discount) as total_after_discount, ' +
+      'C.product_id, ' +
+      'C.product_name ' +
       'FROM pu_receive_goods_item A ' +
       'JOIN pu_receive_goods B ON A.receive_goods_id = B.receive_goods_id ' +
       'JOIN m_product C ON A.product_id = C.product_id ' +
@@ -46,7 +48,7 @@ export class ReceiveGoodsService {
       query += 'AND B.ext_doc_no = $4 ';
     }
 
-    query += 'GROUP BY B.receive_goods_id, B.doc_date ';
+    query += 'GROUP BY B.receive_goods_id, B.doc_date, C.product_id ';
     query += 'ORDER BY doc_date DESC ';
 
     const params = [formattedStartDate, formattedEndDate];
