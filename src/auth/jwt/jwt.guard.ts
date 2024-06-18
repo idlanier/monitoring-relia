@@ -43,6 +43,9 @@ export class JwtGuard extends AuthGuard('jwt') {
       let error_message = 'Invalid Token';
       if (info instanceof TokenExpiredError) {
         error_message = 'Expired Token';
+
+        logger.error('AuthJwtGuardError.Expired', '', this.constructor.name);
+        throw new ForbiddenException('Forbidden Access');
       }
 
       logger.error('AuthJwtGuardError.Unauthorize', '', this.constructor.name);
