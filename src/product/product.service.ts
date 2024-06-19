@@ -109,7 +109,7 @@ export class ProductService {
       query += 'LIMIT 10 OFFSET 0';
     }
 
-    const params = [product_id];
+    const params = [];
 
     const rawData = await this.entityManager.query(query, params);
 
@@ -137,7 +137,7 @@ export class ProductService {
       ' JOIN m_warehouse D ON A.warehouse_id = D.warehouse_id ' +
       ' WHERE C.product_id = ' +
       product_id +
-      ' ORDER BY A.create_datetime DESC ';
+      ' ORDER BY A.ref_doc_date DESC ';
 
     if (limit && offset) {
       query += 'LIMIT ' + limit + ' OFFSET ' + offset;
@@ -145,7 +145,7 @@ export class ProductService {
       query += 'LIMIT 10 OFFSET 0';
     }
 
-    const params = [product_id];
+    const params = [];
 
     const rawData = await this.entityManager.query(query, params);
 

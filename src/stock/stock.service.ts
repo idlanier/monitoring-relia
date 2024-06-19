@@ -67,11 +67,15 @@ export class StockService {
         'A.qty, ' +
         'B.product_id, ' +
         'B.product_name, ' +
-        'B.product_name ' +
+        'B.product_name, ' +
+        'C.doc_type_id, ' +
+        'C.doc_code, ' +
+        'C.doc_desc ' +
         'FROM in_log_product_balance_stock A ' +
         'JOIN m_product B ON A.product_id = B.product_id ' +
         'JOIN m_document C ON A.ref_doc_type_id = C.doc_type_id ' +
         'WHERE A.product_id = $1 ' +
+        'ORDER BY ref_doc_date DESC ' +
         `LIMIT ${limit} OFFSET ${offset} `,
       [id],
     );
