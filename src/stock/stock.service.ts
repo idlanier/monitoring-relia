@@ -80,8 +80,20 @@ export class StockService {
       [id],
     );
 
+    const rawCountDetailData = await this.entityManager.query(
+      'SELECT ' +
+        'COUNT(*) total_data ' +
+        'FROM in_log_product_balance_stock A ' +
+        'JOIN m_product B ON A.product_id = B.product_id ' +
+        'JOIN m_document C ON A.ref_doc_type_id = C.doc_type_id ' +
+        'WHERE A.product_id = $1 ' +
+        'GROUP BY A.product_balance_id ',
+      [id],
+    );
+
     return {
       header: rawHeaderData[0],
+      total_history_data: rawCountDetailData[0].total_data,
       history_log: rawDetailData,
     };
   }
