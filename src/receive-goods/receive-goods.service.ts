@@ -68,16 +68,19 @@ export class ReceiveGoodsService {
     const rawHeaderData = await this.entityManager.query(
       'SELECT ' +
         'receive_goods_id, ' +
-        'doc_no, ' +
-        'doc_date, ' +
-        'ext_doc_no, ' +
-        'ext_doc_date,' +
-        'status_doc, ' +
-        'remark, ' +
-        'remark_confirm, ' +
-        'B.supplier_name ' +
+        'A.doc_no, ' +
+        'A.doc_date, ' +
+        'A.ext_doc_no, ' +
+        'A.ext_doc_date,' +
+        'A.status_doc, ' +
+        'A.remark, ' +
+        'A.remark_confirm, ' +
+        'B.supplier_name, ' +
+        'C.doc_no as ref_doc_no, ' +
+        'C.doc_date as ref_doc_date ' +
         'FROM pu_receive_goods A ' +
         'JOIN m_supplier B ON A.supplier_id = B.supplier_id ' +
+        'JOIN pu_po C ON A.ref_id = C.po_id ' +
         'WHERE A.receive_goods_id = $1 ',
       [id],
     );
