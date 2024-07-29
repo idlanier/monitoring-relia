@@ -73,6 +73,6 @@ export class PatientService {
 
     const rawData = await this.entityManager.query(query, params);
 
-    return rawData;
+    return rawData[0];
   }
 }
