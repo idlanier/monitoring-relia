@@ -181,7 +181,7 @@ export class MedicalRecordService {
 
     const rawData = await this.entityManager.query(query, params);
 
-    return rawData;
+    return rawData[0];
   }
 
   async getMedicalRecordTreatmentById(medical_record_id: number) {
