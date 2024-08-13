@@ -206,7 +206,7 @@ export class MedicalRecordService {
       'A.salesman_id,  ' +
       'B.full_name as salesman_name  ' +
       ' FROM m_medical_record_treatment A ' +
-      ' JOIN m_salesman B ON A.salesman_id = B.salesman_id ' +
+      ' LEFT JOIN m_salesman B ON A.salesman_id = B.salesman_id ' +
       ' JOIN m_product C ON A.product_treatment_id = C.product_id ' +
       ' WHERE A.medical_record_id = ' +
       medical_record_id;
@@ -232,9 +232,9 @@ export class MedicalRecordService {
       'A.update_datetime, ' +
       'A.update_username, ' +
       'A.salesman_id,  ' +
-      'B.full_name as salesman_name  ' +
+      "COALESCE(B.full_name, '-') as salesman_name  " +
       ' FROM m_medical_record_product A ' +
-      ' JOIN m_salesman B ON A.salesman_id = B.salesman_id ' +
+      ' LEFT JOIN m_salesman B ON A.salesman_id = B.salesman_id ' +
       ' WHERE A.medical_record_id = ' +
       medical_record_id;
 
