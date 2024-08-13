@@ -191,6 +191,8 @@ export class MedicalRecordService {
       'A.medical_record_id,  ' +
       'A.line_no,  ' +
       'A.product_treatment_id,  ' +
+      'C.product_name, ' +
+      'C.product_code, ' +
       'A.recommend_to,  ' +
       'A.remark,  ' +
       'A.version,  ' +
@@ -205,6 +207,7 @@ export class MedicalRecordService {
       'B.full_name as salesman_name  ' +
       ' FROM m_medical_record_treatment A ' +
       ' JOIN m_salesman B ON A.salesman_id = B.salesman_id ' +
+      ' JOIN m_product C ON A.product_treatment_id = C.product_id ' +
       ' WHERE A.medical_record_id = ' +
       medical_record_id;
 
@@ -248,11 +251,14 @@ export class MedicalRecordService {
       'A.medical_record_price_item_id, ' +
       'A.ref_id, ' +
       'A.product_id, ' +
+      'B.product_name, ' +
+      'B.product_code, ' +
       'A.unit_price_amount, ' +
       'A.qty, ' +
       'A.amount_gross, ' +
       'A.type_medical_record ' +
       ' FROM m_medical_record_price_item A ' +
+      ' JOIN m_product B ON A.product_id = B.product_id ' +
       ' WHERE A.ref_id = ' +
       medical_record_id;
 
