@@ -8,7 +8,7 @@ import { getFirstDayOfTheWeek } from './util/getFirstDayOfTheWeek.util';
 import { getLastDayOfTheWeek } from './util/getLastDayOfTheWeek.util';
 
 @Injectable()
-export class DashboardService {
+export class DashboardDonerdiService {
   constructor(
     @InjectEntityManager()
     private readonly entityManager: EntityManager,
@@ -27,7 +27,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [currentYear],
     );
 
@@ -59,7 +59,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [firstDateMonth, lastDateMonth],
     );
 
@@ -85,7 +85,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [firstDay, seventhDay],
     );
 
@@ -110,7 +110,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [currentDate],
     );
 
@@ -136,7 +136,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [first],
     );
 
@@ -150,7 +150,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [second],
     );
 
@@ -164,7 +164,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [third],
     );
 
@@ -178,7 +178,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [fourth],
     );
 
@@ -192,7 +192,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [fifth],
     );
 
@@ -206,7 +206,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [sixth],
     );
 
@@ -220,7 +220,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [seventh],
     );
 
@@ -269,7 +269,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [getRevenueByDate.start_date, getRevenueByDate.end_date],
     );
 
@@ -330,7 +330,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [januaryFirstDateMonth, januaryLastDateMonth],
     );
 
@@ -344,7 +344,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [febuaryFirstDateMonth, febuaryLastDateMonth],
     );
 
@@ -358,7 +358,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [marchFirstDateMonth, marchLastDateMonth],
     );
 
@@ -372,7 +372,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [aprilFirstDateMonth, aprilLastDateMonth],
     );
 
@@ -386,7 +386,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [mayFirstDateMonth, mayLastDateMonth],
     );
 
@@ -400,7 +400,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [juneFirstDateMonth, juneLastDateMonth],
     );
 
@@ -423,7 +423,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [augustFirstDateMonth, augustLastDateMonth],
     );
 
@@ -437,7 +437,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [septemberFirstDateMonth, septemberLastDateMonth],
     );
 
@@ -451,7 +451,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [octoberFirstDateMonth, octoberLastDateMonth],
     );
 
@@ -465,7 +465,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [novemberFirstDateMonth, novemberLastDateMonth],
     );
 
@@ -479,7 +479,7 @@ export class DashboardService {
         'AND A.item_amount_after_discount <> 0 ' +
         'AND A.unit_sell_price <> 1 ' +
         'AND A.unit_sell_price <> 0 ' +
-        `AND A.product_id ${this.generateReliaProductId()} `,
+        `AND A.product_id ${this.generateDonerdiProductId()} `,
       [decemberFirstDateMonth, decemberLastDateMonth],
     );
 
@@ -561,7 +561,7 @@ export class DashboardService {
         'JOIN public.m_product C ON A.product_id = C.product_id ' +
         'JOIN m_ctgr_product D ON D.ctgr_product_id = C.ctgr_product_id ' +
         'WHERE LEFT(doc_date, 4) = $1 ' +
-        `AND A.product_id ${this.generateReliaProductId()} ` +
+        `AND A.product_id ${this.generateDonerdiProductId()} ` +
         'GROUP BY C.product_id, D.ctgr_product_name ' +
         'ORDER BY sum(A.unit_sell_price) DESC ' +
         'LIMIT 10',
@@ -583,7 +583,7 @@ export class DashboardService {
         'JOIN public.m_product C ON A.product_id = C.product_id ' +
         'JOIN m_ctgr_product D ON D.ctgr_product_id = C.ctgr_product_id ' +
         'WHERE LEFT(doc_date, 4) = $1 ' +
-        `AND A.product_id ${this.generateReliaProductId()} ` +
+        `AND A.product_id ${this.generateDonerdiProductId()} ` +
         'GROUP BY C.product_id, D.ctgr_product_name ' +
         'ORDER BY sum(A.qty) DESC ' +
         'LIMIT 10',
@@ -612,7 +612,7 @@ export class DashboardService {
         'JOIN public.m_product C ON A.product_id = C.product_id ' +
         'JOIN m_ctgr_product D ON D.ctgr_product_id = C.ctgr_product_id ' +
         'WHERE doc_date BETWEEN $1 AND $2 ' +
-        `AND A.product_id ${this.generateReliaProductId()} ` +
+        `AND A.product_id ${this.generateDonerdiProductId()} ` +
         'GROUP BY C.product_id, D.ctgr_product_name ' +
         'ORDER BY sum(A.unit_sell_price) DESC ' +
         'LIMIT 10',
@@ -641,7 +641,7 @@ export class DashboardService {
         'JOIN public.m_product C ON A.product_id = C.product_id ' +
         'JOIN m_ctgr_product D ON D.ctgr_product_id = C.ctgr_product_id ' +
         'WHERE doc_date BETWEEN $1 AND $2 ' +
-        `AND A.product_id ${this.generateReliaProductId()} ` +
+        `AND A.product_id ${this.generateDonerdiProductId()} ` +
         'GROUP BY C.product_id, D.ctgr_product_name ' +
         'ORDER BY sum(A.qty) DESC ' +
         'LIMIT 10',
@@ -693,7 +693,7 @@ export class DashboardService {
     return result;
   }
 
-  generateReliaProductId() {
-    return 'IN (1678, 1134, 1823, 917, 1907, 1162, 334, 834, 1505, 976, 978, 977, 1202, 994, 993, 995, 1400, 992, 1018, 1019, 1210, 1786, 1023, 835, 335, 874, 1221, 877, 1209, 1145, 893, 1211, 1064, 1723, 1188, 1057, 414, 1097, 896, 895, 1894, 1520, 1871, 1151, 1759, 1142, 1856, 938, 937, 1316, 415, 1125, 1294, 1855, 1129, 1720, 1822, 1820, 1725, 1789, 1772, 1734, 1758, 1757, 910, 1205, 930, 1795, 933, 1490, 1491, 1492, 1493, 1464, 1457, 881, 884, 879, 883, 880, 1234, 1866, 1235, 1233, 882, 1247, 1073, 1551, 1160, 1722, 1072, 1074, 1075, 1076, 1424, 321, 1315, 916, 1123, 920, 417, 1912, 1099, 1007, 419, 1030, 1546, 1154, 1229, 915, 1090, 1248, 1143, 1084, 1153, 1699, 1333, 1329, 421, 1231, 1130, 1261, 1104, 1170, 919, 1061, 1041, 422, 423, 1737, 424, 1541, 1120, 1111, 1101, 1124, 1379, 996, 936, 1767, 1721, 1782, 1062, 1003, 921, 997, 922, 1128, 1169, 1140, 1733, 1108, 1220, 1677, 1544, 1693, 1719, 1718, 1710, 1262, 1241, 1735, 1252, 1762, 828, 1192, 1159, 1328, 1029, 826, 1117, 973, 975, 972, 426, 427, 1764, 1033, 1034, 1079, 1172, 1304, 1300, 1904, 1028, 428, 1080, 929, 1206, 1009, 1020, 366, 429, 1908, 1017, 1011, 1016, 1012, 1729, 1195, 1456, 1700, 1717, 1715, 1588, 1701, 1190, 865, 1724, 1324, 1215, 1158, 430, 1044, 945, 1037, 431, 866, 501, 864, 504, 502, 503, 1257, 505, 1100, 432, 1539, 1684, 1325, 1182, 1183, 1047, 1547, 1535, 1144, 1489, 1601, 1602, 1548, 1557, 1910, 1628, 1629, 1632, 1633, 1636, 1614, 1618, 1619, 1611, 1613, 1569, 888, 887, 886, 1228, 1165, 1193, 1118, 1116, 1176, 1186, 1299, 1536, 1024, 1002, 1396, 1001, 435, 1887, 1150, 1121, 986, 1265, 1058, 1250, 1087, 1069, 1105, 1552, 1553, 1226, 1086, 934, 935, 1320, 1071, 1458, 1481, 1482, 1199, 1620, 1480, 1113, 1066, 1558, 1560, 1561, 1564, 1565, 1065, 1068, 1203, 1070, 1114, 1219, 931, 827, 1319, 1191, 1096, 1059, 1208, 1216, 1244, 1217, 1127, 1085, 1067, 987, 1112, 1092, 1460, 1526, 1103, 1173, 1223, 1197, 1198, 985, 1189, 1109, 768, 1549, 1088, 1135, 1395, 1256, 1095, 1568, 904, 1222, 891, 1373, 769, 250, 1807, 1768, 1714, 1727, 1238, 1741, 1888, 1152, 1139, 1802, 829, 969, 970, 1184, 968, 1185, 1148, 319, 1832, 1412, 1410, 1411, 1419, 1115, 1712, 1713, 1874, 1177, 1230, 1232, 1224, 1174, 903, 1089, 901, 918, 1157, 1461, 1407, 1408, 1439, 1227, 1796, 1455, 1382, 1266, 984, 981, 1107, 1110, 1026, 1194, 1242, 1050, 913, 440, 1331, 1163, 1035, 1081, 1394, 988, 989, 1091, 1240, 1736, 1794, 442, 1043, 1338, 1046, 1180, 1060, 486, 1119, 1098, 1726, 1770, 1214, 1644, 538, 533, 532, 535, 534, 1371, 1132, 539, 1131, 1126, 1370, 1369, 1372, 536, 537, 1149, 531, 1704, 1538, 1809, 1267, 1122, 1264, 1522, 1524, 1525, 1521, 1187, 1738)';
+  generateDonerdiProductId() {
+    return 'IN ( 593, 54, 684, 57, 1833, 58, 59, 60, 443, 1425, 596, 810, 811, 737, 458, 61, 1837, 688, 699, 63, 1053, 649, 650, 64, 1661, 651, 65, 575, 555, 610, 809, 389, 1585, 68, 782, 12, 70, 391, 1788, 73, 1695, 74, 653, 1351, 652, 1141, 75, 1077, 1078, 736, 76, 77, 78, 79, 1675, 1739, 1339, 1676, 616, 1766, 81, 711, 1414, 1475, 82, 1793, 83, 1253, 1587, 830, 84, 673, 462, 85, 86, 1831, 963, 727, 392, 87, 570, 524, 739, 657, 89, 393, 394, 778, 92, 91, 848, 1854, 967, 958, 956, 94, 587, 95, 96, 97, 98, 99, 785, 1171, 1479, 563, 564, 567, 628, 839, 840, 338, 15, 1656, 102, 1102, 523, 1175, 614, 617, 1063, 1349, 581, 103, 16, 844, 1418, 395, 551, 552, 1792, 1225, 553, 104, 820, 105, 818, 1783, 1446, 325, 106, 410, 1847, 408, 719, 1436, 1249, 667, 1454, 51, 109, 749, 747, 111, 1212, 497, 1453, 112, 113, 655, 1507, 783, 1449, 115, 1426, 1849, 750, 1363, 1743, 1747, 773, 705, 121, 694, 122, 123, 1826, 600, 343, 126, 732, 823, 1473, 127, 128, 1755, 730, 1658, 529, 738, 588, 763, 822, 1550, 133, 18, 1728, 856, 19, 134, 445, 603, 1819, 1586, 136, 346, 396, 814, 1166, 1167, 1156, 602, 743, 1732, 722, 723, 1204, 141, 1468, 1094, 1093, 1420, 1021, 142, 784, 573, 1626, 1164, 1442, 1899, 579, 518, 589, 1196, 1891, 709, 609, 629, 350, 1513, 1355, 546, 1868, 146, 354, 528, 858, 1902, 332, 704, 703, 149, 707, 153, 702, 158, 622, 611, 162, 164, 327, 948, 165, 166, 605, 169, 172, 425, 1443, 791, 173, 577, 565, 591, 618, 175, 557, 708, 358, 1471, 745, 176, 780, 177, 178, 179, 491, 180, 181, 1830, 1543, 1771, 24, 182, 185, 25, 1429, 190, 606, 831, 825, 615, 511, 1341, 361, 192, 1893, 962, 583, 966, 467, 630, 195, 196, 541, 447, 448, 1340, 201, 202, 203, 205, 789, 206, 1302, 1903, 621, 207, 842, 211, 212, 1801, 1497, 214, 364, 1428, 218, 1645, 1517, 1519, 761, 712, 1730, 681, 1650, 220, 398, 632, 631, 221, 1800, 576, 843, 608, 1731, 585, 584, 1744, 1808, 1882, 471, 666, 721, 960, 369, 1213, 852, 227, 550, 1706, 1255, 1415, 1452, 228, 726, 753, 1137, 1251, 713, 714, 1751, 230, 231, 234, 370, 235, 1200, 30, 32, 236, 1839, 33, 1364, 237, 648, 720, 239, 34, 635, 542, 1642, 1207, 1273, 1504, 35, 1237, 36, 240, 604, 527, 1027, 530, 813, 812, 794, 371, 607, 242, 755, 474, 475, 476, 1263, 549, 243, 477, 1769, 728, 1606, 1600, 1365, 718, 1835, 1750, 815, 372, 1444, 246, 951, 949, 682, 247, 494, 594, 627, 324, 499, 595, 554, 249, 955, 850, 559, 400, 1161, 758, 1674, 251, 580, 1878, 252, 1827, 1857, 1840, 39, 544, 254, 787, 374, 375, 259, 1201, 260, 451, 457, 452, 261, 762, 1897, 1814, 1884, 1821, 1876, 1850, 1287, 1357, 715, 41, 266, 1270, 265, 578, 562, 847, 509, 377, 1578, 267, 1168, 1817, 1883, 268, 1450, 269, 679, 597, 42, 661, 660, 272, 817, 1582, 671, 276, 1785, 277, 1353, 1259, 1258, 590, 620, 561, 816, 379, 278, 279, 1869, 280, 757, 281, 282, 1236, 1243, 285, 43, 286, 380, 287, 586, 1146, 1652, 1643, 700, 291, 453, 454, 1845, 1422, 1692, 1825, 455, 456, 1393, 849, 521, 1260, 296, 297, 624, 401, 672, 299, 498, 302, 48, 305, 572, 482, 1752, 381, 568, 731, 1665, 1742, 1824, 1421, 514, 777, 793, 309, 599, 311, 49, 1430, 1853, 520, 1688, 1352, 1581, 313, 314, 717, 646, 1347, 315, 558, 1268, 1890, 1812, 50, 1246, 1245, 512, 1254, 386, 1815, 405, 1082, 406)';
   }
 }

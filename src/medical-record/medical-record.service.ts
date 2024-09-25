@@ -225,6 +225,8 @@ export class MedicalRecordService {
       'A.medical_record_id, ' +
       'A.line_no, ' +
       'A.product_id, ' +
+      'C.product_name, ' +
+      'C.product_code, ' +
       'A.qty, ' +
       'A.remark, ' +
       'A.create_datetime, ' +
@@ -235,6 +237,7 @@ export class MedicalRecordService {
       "COALESCE(B.full_name, '-') as salesman_name  " +
       ' FROM m_medical_record_product A ' +
       ' LEFT JOIN m_salesman B ON A.salesman_id = B.salesman_id ' +
+      ' JOIN m_product C ON A.product_id = C.product_id ' +
       ' WHERE A.medical_record_id = ' +
       medical_record_id;
 

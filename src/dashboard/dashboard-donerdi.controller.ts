@@ -1,12 +1,12 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { DashboardService } from './dashboard.service';
 import { GetRevenueByDateDTO } from './dto/getRevenueByDate.dto';
 import { AuthJwtGuard } from 'src/auth/auth.decorator';
+import { DashboardDonerdiService } from './dashboard-donerdi.service';
 
 @AuthJwtGuard()
-@Controller('dashboard/relia')
-export class DashboardController {
-  constructor(private readonly dashboardService: DashboardService) {}
+@Controller('dashboard/donerdi')
+export class DashboardDonerdiController {
+  constructor(private readonly dashboardService: DashboardDonerdiService) {}
 
   @Get('/year/revenue')
   getCurrentYearRevenue() {
